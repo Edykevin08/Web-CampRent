@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Penyewaan — CampRent</title>
+  <meta name="description" content="Lihat daftar penyewa alat camping CampRent. Pastikan namamu sudah terdaftar sebelum datang ke lokasi.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      padding-top: var(--nav-height);
+      background-color: var(--color-bg-section);
+    }
+
+    /* ── Stats Bar ── */
+    .stats-bar {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      flex: 1;
+      min-width: 120px;
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-box .stat-icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .stat-box .stat-value {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-box .stat-label {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+
+    /* ── Info Banner ── */
+    .info-banner {
+      background-color: rgba(46,94,78,0.05);
+      border: 1px solid rgba(46,94,78,0.2);
+      border-left: 3px solid var(--color-primary);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: var(--color-text-light);
+      line-height: 1.5;
+    }
+
+    .info-banner .info-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .info-banner strong {
+      color: var(--color-text);
+    }
+
+    /* ── Toolbar ── */
+    .data-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-wrap .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      pointer-events: none;
+    }
+
+    .search-wrap input {
+      padding-left: 36px;
+      min-width: 240px;
+      height: 40px;
+      font-size: 0.88rem;
+    }
+
+    .toolbar-right {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Table Card ── */
+    .table-card {
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    /* Table overrides for this page */
+    .table-card table { font-size: 0.86rem; }
+    .table-card thead th { padding: 11px 14px; }
+    .table-card tbody td { padding: 13px 14px; }
+
+    .td-name-main { font-weight: 600; color: var(--color-text); margin-bottom: 2px; }
+    .td-sub { font-size: 0.76rem; color: var(--color-text-muted); margin-top: 2px; }
+    .td-price { font-family: var(--font-heading); font-weight: 700; color: var(--color-primary); }
+
+    .row-actions { display: flex; gap: 6px; align-items: center; }
+
+    @media (max-width: 700px) {
+      .stats-bar { gap: 10px; }
+      .stat-box { padding: 14px 12px; min-width: 100px; }
+      .stat-box .stat-value { font-size: 1.4rem; }
+
+      .data-toolbar { flex-direction: column; align-items: stretch; }
+      .search-wrap input { min-width: 100%; }
+      .toolbar-right { justify-content: flex-end; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar" role="navigation" aria-label="Navigasi utama">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="CampRent - Beranda">
+        <div class="nav-logo-icon">⛺</div>
+        <span class="nav-logo-text">Camp<span>Rent</span></span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="paket.html">Paket</a></li>
+        <li><a href="cara-sewa.html">Cara Sewa</a></li>
+        <li><a href="katalog.html">Katalog</a></li>
+        <li><a href="data.html" class="active">Data Sewa</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="sewa.html" class="btn btn-primary btn-sm" id="btn-nav-pesan">Pesan Sekarang</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Buka menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html">Beranda</a>
+    <a href="paket.html">Paket</a>
+    <a href="cara-sewa.html">Cara Sewa</a>
+    <a href="katalog.html">Katalog</a>
+    <a href="data.html">Data Sewa</a>
+    <a href="tentang.html">Tentang</a>
+    <a href="sewa.html" style="color:var(--color-primary);font-weight:700;border-bottom:none;margin-top:8px;">→ Pesan Sekarang</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <div class="section-tag" style="margin-bottom:8px;">📋 Data Penyewaan</div>
+      <h1>Daftar Penyewa</h1>
+      <p>Pastikan namamu sudah terdaftar. Jika sudah ada, datang ke lokasi kami pada tanggal sewa.</p>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="section" style="padding-top:36px;">
+    <div class="container">
+
+      <!-- Info Banner -->
+      <div class="info-banner">
+        <span class="info-icon">ℹ️</span>
+        <div>
+          <strong>Cara Konfirmasi:</strong> Cari namamu di tabel di bawah. Jika status <strong>Menunggu</strong> atau <strong>Aktif</strong>, pemesananmu sudah tercatat. Datang ke lokasi pada tanggal sewa dengan membawa <strong>KTP asli</strong>.
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-box">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value" id="stat-total">0</div>
+          <div class="stat-label">Total Penyewa</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">⏳</div>
+          <div class="stat-value" id="stat-menunggu">0</div>
+          <div class="stat-label">Menunggu</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">✅</div>
+          <div class="stat-value" id="stat-aktif">0</div>
+          <div class="stat-label">Aktif</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">🏁</div>
+          <div class="stat-value" id="stat-selesai">0</div>
+          <div class="stat-label">Selesai</div>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="data-toolbar">
+        <div class="toolbar-left">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input
+              type="text"
+              class="form-control"
+              id="search-input"
+              placeholder="Cari nama, paket, atau status..."
+              aria-label="Cari data penyewa"
+            >
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <button class="btn btn-ghost btn-sm" id="btn-export" title="Ekspor ke CSV">
+            📥 Ekspor CSV
+          </button>
+          <button class="btn btn-danger btn-sm" id="btn-clear-all" title="Hapus semua data">
+            🗑️ Hapus Semua
+          </button>
+          <a href="sewa.html" class="btn btn-primary btn-sm" id="btn-pesan-baru">
+            + Pesan Baru
+          </a>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-card" id="table-wrapper" style="display:none;">
+        <table aria-label="Tabel data penyewaan alat camping">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Penyewa</th>
+              <th>Paket Sewa</th>
+              <th>Tanggal Sewa</th>
+              <th>Status</th>
+              <th>Estimasi Biaya</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="data-tbody">
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon">🏕️</div>
+        <h3>Belum Ada Data Penyewaan</h3>
+        <p>Jadilah yang pertama memesan! Isi form penyewaan sekarang dan mulai petualanganmu.</p>
+        <a href="sewa.html" class="btn btn-primary" id="btn-empty-pesan">
+          Pesan Sekarang
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:0;">
+        <p>© 2025 CampRent — <a href="index.html" style="color:var(--color-secondary);">Kembali ke Beranda</a></p>
+        <p>⛺ Selamat Mendaki!</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+</body>
+</html>

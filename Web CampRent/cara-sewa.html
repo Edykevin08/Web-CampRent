@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cara Sewa — CampRent</title>
+  <meta name="description" content="Langkah mudah menyewa alat camping di CampRent.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    body { padding-top: var(--nav-height); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar" role="navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">⛺</div>
+        <span class="nav-logo-text">Camp<span>Rent</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="paket.html">Paket</a></li>
+        <li><a href="cara-sewa.html" class="active">Cara Sewa</a></li>
+        <li><a href="katalog.html">Katalog</a></li>
+        <li><a href="data.html">Data Sewa</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <a href="sewa.html" class="btn btn-primary btn-sm">Pesan Sekarang</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html">Beranda</a>
+    <a href="paket.html">Paket</a>
+    <a href="cara-sewa.html" class="active">Cara Sewa</a>
+    <a href="katalog.html">Katalog</a>
+    <a href="data.html">Data Sewa</a>
+    <a href="tentang.html">Tentang</a>
+    <a href="sewa.html" style="color:var(--color-primary);font-weight:700;border-bottom:none;margin-top:8px;">→ Pesan Sekarang</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <div class="section-tag" style="margin-bottom:8px;">📋 Cara Sewa</div>
+      <h1>Mudah dalam 4 Langkah</h1>
+      <p>Proses sewa yang simpel dan tidak ribet. Dari pilih alat hingga ambil di lokasi, semuanya mudah.</p>
+    </div>
+  </div>
+
+  <!-- CARA SEWA -->
+  <section class="section" id="cara-sewa" aria-labelledby="cara-sewa-heading">
+    <div class="container" style="max-width: 900px; padding: 40px 0;">
+      
+      <div class="steps-container" style="padding-top: 20px;">
+        <div class="steps-track">
+
+          <div class="step-item reveal reveal-delay-1">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-emoji">📦</div>
+              <div class="step-title">Pilih Paket atau Alat</div>
+              <p class="step-desc">Jelajahi <a href="katalog.html" style="color:var(--color-primary);">katalog</a> dan pilih paket yang sesuai dengan kebutuhan perjalananmu.</p>
+            </div>
+          </div>
+
+          <div class="step-item reveal reveal-delay-2">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-emoji">📝</div>
+              <div class="step-title">Isi Form Penyewaan</div>
+              <p class="step-desc">Lengkapi data nama, nomor HP, tanggal sewa, dan pilihan paket dengan benar di halaman <a href="sewa.html" style="color:var(--color-primary);">Pesan</a>.</p>
+            </div>
+          </div>
+
+          <div class="step-item reveal reveal-delay-3">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-emoji">✅</div>
+              <div class="step-title">Cek Data Penyewaan</div>
+              <p class="step-desc">Data tersimpan otomatis. Cek namamu di halaman <a href="data.html" style="color:var(--color-primary);">Data Sewa</a> untuk memastikan pemesanan berhasil.</p>
+            </div>
+          </div>
+
+          <div class="step-item reveal reveal-delay-4">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <div class="step-emoji">🎒</div>
+              <div class="step-title">Ambil di Lokasi</div>
+              <p class="step-desc">Datang ke <a href="tentang.html#lokasi" style="color:var(--color-primary);">lokasi kami</a> pada tanggal sewa. Bawa KTP asli untuk verifikasi.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-bg" style="text-align:center;">
+    <div class="container">
+      <h2>Sudah Paham Caranya?</h2>
+      <p style="margin-bottom: 24px;">Langsung saja pesan sekarang dan amankan alat camping-mu.</p>
+      <a href="sewa.html" class="btn btn-primary btn-lg">Pesan Sekarang</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:0;">
+        <p>© 2025 CampRent — <a href="index.html" style="color:var(--color-secondary);">Kembali ke Beranda</a></p>
+        <p>⛺ Selamat Mendaki!</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

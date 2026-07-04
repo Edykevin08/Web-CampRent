@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang CampRent — Sewa Alat Camping Terpercaya</title>
+  <meta name="description" content="Kenali lebih dekat CampRent — layanan penyewaan alat camping terpercaya. Temukan lokasi, jam operasional, dan cara menghubungi kami.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      padding-top: var(--nav-height);
+      background-color: var(--color-bg);
+    }
+
+    /* ── About Hero ── */
+    .about-hero {
+      background-color: var(--color-bg-section);
+      border-bottom: 1px solid var(--color-border);
+      padding: 60px 0;
+    }
+
+    .about-hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .about-hero-content {
+      flex: 1;
+    }
+
+    .about-hero-image {
+      flex: 0 0 420px;
+    }
+
+    .about-hero-image img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 900px) {
+      .about-hero-inner {
+        flex-direction: column;
+        gap: 36px;
+      }
+      .about-hero-image {
+        flex: none;
+        width: 100%;
+      }
+      .about-hero-image img { height: 240px; }
+    }
+
+    /* ── Keunggulan Grid ── */
+    .keunggulan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .keunggulan-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .keunggulan-grid { grid-template-columns: 1fr; }
+    }
+
+    .keunggulan-card {
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+    }
+
+    .keunggulan-card:hover {
+      border-color: var(--color-secondary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .keunggulan-icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+    }
+
+    .keunggulan-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    .keunggulan-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Info Lokasi & Operasional ── */
+    .info-grid {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .info-card {
+      flex: 1;
+      min-width: 260px;
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .info-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .info-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+    }
+
+    .info-list-item .item-label {
+      color: var(--color-text-muted);
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+
+    .info-list-item .item-value {
+      color: var(--color-text);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* ── Kontak ── */
+    .kontak-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .kontak-grid { grid-template-columns: 1fr; }
+    }
+
+    .kontak-card {
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+      text-decoration: none;
+      display: block;
+    }
+
+    .kontak-card:hover {
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .kontak-card .kontak-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .kontak-card .kontak-type {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+
+    .kontak-card .kontak-value {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+
+    .kontak-card .kontak-desc {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text);
+      user-select: none;
+      transition: background-color var(--transition);
+    }
+
+    .faq-question:hover {
+      background-color: var(--color-bg-section);
+    }
+
+    .faq-question .faq-arrow {
+      font-size: 0.7rem;
+      color: var(--color-primary);
+      transition: transform var(--transition);
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      font-size: 0.88rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      border-top: 1px solid var(--color-border);
+      padding-top: 16px;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* ── Map Placeholder ── */
+    .map-placeholder {
+      background-color: var(--color-bg-section);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+
+    .map-placeholder .map-icon {
+      font-size: 2.5rem;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navigasi utama">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="CampRent - Beranda">
+        <div class="nav-logo-icon">⛺</div>
+        <span class="nav-logo-text">Camp<span>Rent</span></span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="paket.html">Paket</a></li>
+        <li><a href="cara-sewa.html">Cara Sewa</a></li>
+        <li><a href="katalog.html">Katalog</a></li>
+        <li><a href="data.html">Data Sewa</a></li>
+        <li><a href="tentang.html" class="active">Tentang</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="sewa.html" class="btn btn-primary btn-sm" id="btn-nav-pesan">Pesan Sekarang</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Buka menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html">Beranda</a>
+    <a href="paket.html">Paket</a>
+    <a href="cara-sewa.html">Cara Sewa</a>
+    <a href="katalog.html">Katalog</a>
+    <a href="data.html">Data Sewa</a>
+    <a href="tentang.html">Tentang</a>
+    <a href="sewa.html" style="color:var(--color-primary);font-weight:700;border-bottom:none;margin-top:8px;">→ Pesan Sekarang</a>
+  </div>
+
+  <!-- ====================================================
+       ABOUT HERO
+  ==================================================== -->
+  <section class="about-hero" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-hero-inner">
+
+        <div class="about-hero-content reveal">
+          <div class="section-tag">🏕️ Tentang Kami</div>
+          <h1 id="about-heading" style="margin-bottom:16px;">
+            Teman Setia<br>Para Petualang
+          </h1>
+          <div class="divider"></div>
+          <p style="margin-bottom:16px;">
+            CampRent lahir dari kecintaan kami terhadap alam bebas dan petualangan. Kami percaya bahwa setiap orang berhak menikmati keindahan alam tanpa harus terbebani biaya besar untuk membeli peralatan.
+          </p>
+          <p style="margin-bottom:28px;">
+            Berdiri sejak 2022, CampRent hadir sebagai solusi sewa alat camping yang mudah, terjangkau, dan terpercaya. Semua peralatan kami selalu dalam kondisi terawat, bersih, dan siap pakai.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="sewa.html" class="btn btn-primary" id="btn-about-pesan">Pesan Sekarang</a>
+            <a href="#kontak" class="btn btn-outline" id="btn-about-kontak">Hubungi Kami</a>
+          </div>
+        </div>
+
+        <div class="about-hero-image reveal reveal-delay-2">
+          <img src="img/Foto hutan.jpeg" alt="Pemandangan jalur hutan asri untuk camping">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       KEUNGGULAN
+  ==================================================== -->
+  <section class="section" aria-labelledby="keunggulan-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <div class="section-tag">⭐ Keunggulan</div>
+        <h2 class="section-title" id="keunggulan-heading">Mengapa Memilih CampRent?</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-desc">Kami berkomitmen memberikan pengalaman sewa alat camping yang menyenangkan dan terpercaya.</p>
+      </div>
+
+      <div class="keunggulan-grid">
+
+        <div class="keunggulan-card reveal reveal-delay-1">
+          <div class="keunggulan-icon">✅</div>
+          <div class="keunggulan-title">Alat Terawat & Berkualitas</div>
+          <p class="keunggulan-desc">Semua peralatan kami selalu dibersihkan, diperiksa, dan dirawat secara rutin sebelum dan sesudah pemakaian.</p>
+        </div>
+
+        <div class="keunggulan-card reveal reveal-delay-2">
+          <div class="keunggulan-icon">💰</div>
+          <div class="keunggulan-title">Harga Terjangkau</div>
+          <p class="keunggulan-desc">Paket sewa mulai dari Rp 50.000/hari. Jauh lebih hemat dibanding membeli alat sendiri untuk satu atau dua kali trip.</p>
+        </div>
+
+        <div class="keunggulan-card reveal reveal-delay-3">
+          <div class="keunggulan-icon">📋</div>
+          <div class="keunggulan-title">Proses Sewa Mudah</div>
+          <p class="keunggulan-desc">Cukup isi form online, cek data penyewaan, lalu datang ke lokasi. Tidak perlu antri atau negosiasi panjang.</p>
+        </div>
+
+        <div class="keunggulan-card reveal reveal-delay-1">
+          <div class="keunggulan-icon">📦</div>
+          <div class="keunggulan-title">Peralatan Lengkap</div>
+          <p class="keunggulan-desc">Lebih dari 30 jenis peralatan tersedia — tenda, sleeping bag, kompor, carrier, headlamp, dan masih banyak lagi.</p>
+        </div>
+
+        <div class="keunggulan-card reveal reveal-delay-2">
+          <div class="keunggulan-icon">🤝</div>
+          <div class="keunggulan-title">Layanan Ramah</div>
+          <p class="keunggulan-desc">Tim kami siap membantu kamu memilih peralatan yang tepat sesuai kebutuhan dan rencana perjalananmu.</p>
+        </div>
+
+        <div class="keunggulan-card reveal reveal-delay-3">
+          <div class="keunggulan-icon">📍</div>
+          <div class="keunggulan-title">Lokasi Strategis</div>
+          <p class="keunggulan-desc">Berlokasi di pusat kota, mudah dijangkau dengan kendaraan pribadi maupun transportasi umum.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       LOKASI & OPERASIONAL
+  ==================================================== -->
+  <section class="section section-bg" id="lokasi" aria-labelledby="lokasi-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <div class="section-tag">📍 Lokasi & Operasional</div>
+        <h2 class="section-title" id="lokasi-heading">Temukan Kami</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-desc">Datang langsung ke toko kami atau hubungi dulu sebelum berkunjung.</p>
+      </div>
+
+      <div class="info-grid">
+
+        <div class="info-card reveal reveal-delay-1">
+          <div class="info-card-icon">📍</div>
+          <h3>Lokasi Toko</h3>
+          <div class="info-list">
+            <div class="info-list-item">
+              <span class="item-label">Alamat</span>
+              <span class="item-value">Jl. Petualang No. 12, Bandung, Jawa Barat 40123</span>
+            </div>
+            <div class="info-list-item">
+              <span class="item-label">Area</span>
+              <span class="item-value">Dekat Terminal Leuwipanjang</span>
+            </div>
+            <div class="info-list-item">
+              <span class="item-label">Parkir</span>
+              <span class="item-value">Tersedia (gratis)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card reveal reveal-delay-2">
+          <div class="info-card-icon">🕐</div>
+          <h3>Jam Operasional</h3>
+          <div class="info-list">
+            <div class="info-list-item">
+              <span class="item-label">Sen – Jum</span>
+              <span class="item-value">08.00 – 20.00 WIB</span>
+            </div>
+            <div class="info-list-item">
+              <span class="item-label">Sabtu</span>
+              <span class="item-value">07.00 – 21.00 WIB</span>
+            </div>
+            <div class="info-list-item">
+              <span class="item-label">Minggu</span>
+              <span class="item-value">07.00 – 21.00 WIB</span>
+            </div>
+            <div class="info-list-item">
+              <span class="item-label">Libur</span>
+              <span class="item-value">Hubungi kami terlebih dahulu</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card reveal reveal-delay-3">
+          <div class="info-card-icon">📋</div>
+          <h3>Syarat Pengambilan</h3>
+          <div class="info-list">
+            <div class="info-list-item">
+              <span class="item-label">Dokumen</span>
+              <span class="item-value">KTP asli (wajib)</span>
+            </div>
+            <div class="info-list-item">
+              <span class="item-label">Pembayaran</span>
+              <span class="item-value">Tunai atau transfer di lokasi</span>
+            </div>
+            <div class="info-list-item">
+              <span class="item-label">Pengembalian</span>
+              <span class="item-value">Alat bersih & lengkap</span>
+            </div>
+            <div class="info-list-item">
+              <span class="item-label">Kerusakan</span>
+              <span class="item-value">Biaya ditanggung penyewa</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Map Placeholder -->
+      <div class="map-placeholder reveal" style="margin-top:28px;">
+        <div class="map-icon">🗺️</div>
+        <p>Jl. Petualang No. 12, Bandung, Jawa Barat</p>
+        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" id="btn-map">
+          Buka di Google Maps
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       KONTAK
+  ==================================================== -->
+  <section class="section" id="kontak" aria-labelledby="kontak-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <div class="section-tag">📞 Kontak</div>
+        <h2 class="section-title" id="kontak-heading">Hubungi Kami</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-desc">Ada pertanyaan atau butuh bantuan? Tim kami siap membantu kamu.</p>
+      </div>
+
+      <div class="kontak-grid">
+
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="kontak-card reveal reveal-delay-1" id="kontak-wa">
+          <div class="kontak-icon">📱</div>
+          <div class="kontak-type">WhatsApp</div>
+          <div class="kontak-value">0812-3456-7890</div>
+          <div class="kontak-desc">Respon cepat di jam operasional</div>
+        </a>
+
+        <a href="https://instagram.com/camprent.id" target="_blank" rel="noopener noreferrer" class="kontak-card reveal reveal-delay-2" id="kontak-ig">
+          <div class="kontak-icon">📸</div>
+          <div class="kontak-type">Instagram</div>
+          <div class="kontak-value">@camprent.id</div>
+          <div class="kontak-desc">Update produk & promo terbaru</div>
+        </a>
+
+        <a href="mailto:hello@camprent.id" class="kontak-card reveal reveal-delay-3" id="kontak-email">
+          <div class="kontak-icon">📧</div>
+          <div class="kontak-type">Email</div>
+          <div class="kontak-value">hello@camprent.id</div>
+          <div class="kontak-desc">Untuk pertanyaan detail & kerjasama</div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       FAQ
+  ==================================================== -->
+  <section class="section section-bg" id="faq" aria-labelledby="faq-heading">
+    <div class="container" style="max-width:760px;">
+
+      <div class="section-header reveal">
+        <div class="section-tag">❓ FAQ</div>
+        <h2 class="section-title" id="faq-heading">Pertanyaan yang Sering Ditanyakan</h2>
+        <div class="divider divider-center"></div>
+      </div>
+
+      <div class="faq-list reveal">
+
+        <div class="faq-item" id="faq-1">
+          <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+            <span>Bagaimana cara memesan alat camping di CampRent?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Caranya mudah! Kunjungi halaman <a href="sewa.html">Form Penyewaan</a>, isi data diri dan detail sewa, lalu klik "Konfirmasi Pemesanan". Data kamu akan langsung tercatat. Setelah itu, datang ke lokasi kami pada tanggal yang sudah dipilih dengan membawa KTP asli.
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-2">
+          <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+            <span>Apakah bisa menyewa alat satuan, tidak dalam satu paket?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Bisa! Pilih opsi "Pilih Sendiri" pada form penyewaan, lalu tuliskan alat yang kamu butuhkan di kolom catatan. Tim kami akan menyesuaikan biaya sewa berdasarkan alat yang dipilih.
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-3">
+          <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+            <span>Kapan pembayaran dilakukan?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Pembayaran dilakukan langsung di toko saat kamu mengambil peralatan. Kami menerima pembayaran tunai dan transfer bank.
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-4">
+          <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+            <span>Apa yang terjadi jika alat rusak atau hilang?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Penyewa bertanggung jawab atas kondisi alat selama masa sewa. Kerusakan atau kehilangan alat akan dikenakan biaya penggantian sesuai nilai alat tersebut. Harap jaga alat dengan baik selama pemakaian.
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-5">
+          <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+            <span>Apakah bisa membatalkan atau mengubah jadwal sewa?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Bisa! Hubungi kami melalui WhatsApp minimal 1 hari sebelum tanggal sewa. Perubahan jadwal dapat dilakukan selama stok alat masih tersedia untuk tanggal baru yang kamu inginkan.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       CTA
+  ==================================================== -->
+  <section class="section" style="background-color:var(--color-primary);" aria-labelledby="cta-tentang-heading">
+    <div class="container" style="text-align:center;">
+      <div class="section-tag" style="background-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);">
+        🚀 Mulai Sekarang
+      </div>
+      <h2 id="cta-tentang-heading" style="color:white;margin-bottom:12px;">
+        Siap Memulai Petualangan?
+      </h2>
+      <p style="color:rgba(255,255,255,0.75);max-width:440px;margin:0 auto 32px;">
+        Pesan alat camping sekarang dan wujudkan perjalanan impianmu bersama CampRent.
+      </p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="sewa.html" class="btn btn-accent btn-lg" id="btn-cta-pesan">Pesan Sekarang</a>
+        <a href="katalog.html" class="btn btn-lg" style="background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.3);color:white;" id="btn-cta-katalog">Lihat Katalog</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       FOOTER
+  ==================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">⛺</div>
+            <span class="nav-logo-text">Camp<span>Rent</span></span>
+          </a>
+          <p>Solusi penyewaan alat camping terlengkap dan terpercaya untuk para petualang Indonesia.</p>
+          <div class="footer-social" style="margin-top:20px;">
+            <a href="#" aria-label="Instagram" id="footer-ig">📸</a>
+            <a href="#" aria-label="WhatsApp" id="footer-wa">📱</a>
+            <a href="#" aria-label="Email" id="footer-email">📧</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="index.html#paket">Paket Sewa</a></li>
+            <li><a href="index.html#katalog">Katalog Alat</a></li>
+            <li><a href="tentang.html">Tentang Kami</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Layanan</h4>
+          <ul>
+            <li><a href="sewa.html">Form Penyewaan</a></li>
+            <li><a href="data.html">Data Penyewaan</a></li>
+            <li><a href="tentang.html#kontak">Hubungi Kami</a></li>
+            <li><a href="tentang.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Jam Buka</h4>
+          <ul>
+            <li><a href="#">Senin – Jumat</a></li>
+            <li><a href="#">08.00 – 20.00 WIB</a></li>
+            <li><a href="#">Sabtu – Minggu</a></li>
+            <li><a href="#">07.00 – 21.00 WIB</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 CampRent. Dibuat untuk para petualang Indonesia.</p>
+        <p>⛺ Selamat Mendaki!</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    /* ── Navbar Scroll ── */
+    var navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    /* ── Mobile Menu ── */
+    var hamburger = document.getElementById('nav-hamburger');
+    var mobileNav = document.getElementById('nav-mobile');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', function () {
+        mobileNav.classList.toggle('open');
+      });
+    }
+
+    /* ── Scroll Reveal ── */
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+      revealEls.forEach(function (el) { revealObserver.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    /* ── FAQ Accordion ── */
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function (item) {
+      var question = item.querySelector('.faq-question');
+      if (question) {
+        question.addEventListener('click', function () {
+          var isOpen = item.classList.contains('open');
+          // Close all
+          faqItems.forEach(function (i) { i.classList.remove('open'); });
+          // Open clicked
+          if (!isOpen) item.classList.add('open');
+          question.setAttribute('aria-expanded', !isOpen);
+        });
+        question.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            question.click();
+          }
+        });
+      }
+    });
+
+    /* ── Smooth Scroll ── */
+    var anchors = document.querySelectorAll('a[href^="#"]');
+    anchors.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          var offset = 90;
+          var top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
